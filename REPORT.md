@@ -1,59 +1,46 @@
 # Báo cáo Day 5 — điền trực tiếp trong fork của bạn
 
-**Cách dùng:** Thay mọi dấu `…` bằng bài làm thật của bạn trước khi nộp link fork trên VLearn. Giữ nguyên bốn mục và bảng để coach đọc nhanh. Viết ngắn, cụ thể theo ảnh/vùng; không cần thuật ngữ chuyên sâu. Ví dụ trong [hướng dẫn mẫu](reports/REPORT_TEMPLATE.md) chỉ giúp hiểu cách điền, không phải câu trả lời để chép lại.
+**Cách dùng:** Thay mọi dấu `…` bằng bài làm thật của bạn trước khi nộp link fork trên VLearn. Giữ nguyên bốn mục và bảng để coach đọc nhanh. Viết ngắn, cụ thể theo ảnh/vùng; không cần thuật ngữ chuyên sâu.
 
-- Mã học viên theo lớp: …
-- Ngày / CVAT local: …
-- Công cụ đã dùng: …
-
-Mã học viên là mã lớp cấp; không cần ghi họ tên trong report nếu kênh VLearn đã nhận diện bạn. Chỉ ghi công cụ thật sự đã dùng; không có SAM vẫn làm bài bình thường.
+* Mã học viên theo lớp: 2A202602190
+* Ngày / CVAT local: 17/09/2026
+* Công cụ đã dùng: CVAT localhost:8080
 
 ## 1. Bài đã nộp
 
-Ghi tên ZIP đúng như file trong `submissions/` và số ảnh đã vẽ, Save. Chưa làm hoặc export lỗi thì ghi `chưa có`, không tạo ZIP rỗng. Cột điểm là điểm tối đa của task, **không phải điểm tự chấm**.
-
-| Task | File ZIP đúng tên | Hoàn thành mấy ảnh | Điểm tối đa (coach chấm sau) |
-| --- | --- | ---: | ---: |
-| easy_semantic | … | … / 3 | 20 |
-| medium_instance | … | … / 3 | 32 |
-| hard_panoptic | … | … / 2 | 30 |
-| cp1_holes | … | … / 1 | 3 |
-| cp2_slice | … | … / 1 | 3 |
-| cp5_occlusion | … | … / 1 | 3 |
-| cp3_thin | … | … / 1 | 3 |
-| cp4_curb | … | … / 1 | 3 |
-| cp6_coverage | … | … / 1 | 3 |
-| **Tổng tối đa** | | | **100** |
-
-Nếu export lỗi, ghi task, dữ liệu đã Save đến đâu và lỗi đã báo coach.
+| Task            | File ZIP đúng tên     | Hoàn thành mấy ảnh | Điểm tối đa (coach chấm sau)|
+| --------------- | --------------------- | -----------------: | --------------------------:|
+| easy_semantic   | `easy_semantic.zip`   |              3 / 3 |                            |
+| medium_instance | `medium_instance.zip` |              3 / 3 |                            |
+| hard_panoptic   | `hard_panoptic.zip`   |              2 / 2 |                            |
+| cp1_holes       | `cp1_holes.zip`       |              1 / 1 |                            |
+| cp2_slice       | `cp2_slice.zip`       |              1 / 1 |                            |
+| cp5_occlusion   | `cp5_occlusion.zip`   |              1 / 1 |                            |
+| cp3_thin        | `cp3-thin.zip`        |              1 / 1 |                            |
+| cp4_curb        | `cp4_curb.zip`        |              1 / 1 |                            |
+| cp6_coverage    | `cp6_coverage.zip`    |              1 / 1 |                            |
+| **Tổng tối đa** |                       |                    |                      **** |
 
 ## 2. Một quyết định trước khi dùng gợi ý
 
-Chọn object đầu tiên bạn tự vẽ ở `medium_instance`, trước khi xem bất kỳ đề xuất tự động nào cho object đó. Ghi ảnh/vị trí đủ để tìm lại; “quy tắc biên” là lý do bạn chọn hoặc dừng mask ở ranh đó.
-
-- Ảnh, vị trí và object Medium đầu tiên tự vẽ: …
-- Class và quy tắc tôi dùng để chọn biên: …
-- Nếu dùng gợi ý sau đó: vùng gợi ý sai/đúng, hành động sửa/giữ và lý do: …
-- Nếu không dùng gợi ý: ghi “không dùng”; vẫn giải thích một quyết định gán nhãn của mình.
+- Ảnh, vị trí và object Medium đầu tiên tự vẽ: ảnh đầu tiên là `000000181542.jpg`, object đầu tiên là **motorcycle**, ở góc phải màn hình.
+- Class và quy tắc tôi dùng để chọn biên: **motorcycle; tôi vẽ theo phần xe thực sự nhìn thấy, bám sát đường viền bên ngoài của xe và không lấy phần nền hoặc các vật thể tách biệt xung quanh.**
+- Nếu dùng gợi ý sau đó: **vùng gợi ý được đối chiếu với ảnh gốc; nếu gợi ý lấn sang nền hoặc thiếu một phần của motorcycle thì tôi chỉnh lại mask theo đường biên nhìn thấy, phần đúng thì giữ lại.**
+- Nếu không dùng gợi ý: **không dùng.**
 
 ## 3. Một lỗi tôi tìm thấy và sửa
 
-Chọn một lỗi **có thật** trong bài. Nếu công cụ lỗi khiến bạn chưa sửa được, ghi rõ đã thử gì và cần coach hỗ trợ gì; không ghi “đã sửa” khi chưa sửa.
-
-- Task/ảnh/vùng: …
-- Lỗi thuộc loại: sai lớp / thiếu-thừa vật / gộp-tách / biên / phủ vùng / khác: …
-- Bằng chứng tôi nhìn thấy: …
-- Quy tắc và hành động sửa: …
-- Sau sửa đã Save và export lại chưa? …
-
-Nếu bạn **đã xem Summary tự đánh giá trên GitHub Actions hoặc tự chạy script**, ghi ngắn một kết quả liên quan lỗi vừa sửa (ví dụ task, metric trước/sau nếu có): … / chưa có điểm. Scorecard ba tier tối đa **82**, không phải điểm cuối trên 100. Không tự ghi PASS/top 3/bonus; người phụ trách xác nhận theo tiêu chí lớp. Không đưa file ground truth vào fork.
+- Task/ảnh/vùng: **`medium_instance` — ảnh `000000181542.jpg`, vùng motorcycle ở góc phải.**
+- Lỗi thuộc loại: **biên.**
+- Bằng chứng tôi nhìn thấy: **Khi kiểm tra lại mask với ảnh gốc, một số điểm biên ở phần thân/bánh xe chưa bám sát đường viền của motorcycle, có nguy cơ lấy sang phần nền xung quanh.**
+- Quy tắc và hành động sửa: **Tôi chỉnh lại các điểm biên theo phần motorcycle thực sự nhìn thấy, loại phần mask bị dư vào nền và kiểm tra lại để không làm mất phần xe.**
+- Sau sửa đã Save và export lại chưa? **Đã Save và export lại ZIP.**
+- Kết quả tự đánh giá trên GitHub Actions hoặc script liên quan đến lỗi vừa sửa: **chưa có điểm.**
 
 ## 4. Ba ca chưa chắc hoặc đã cân nhắc
 
-Mỗi ca là một **vùng cụ thể** khiến bạn phải cân nhắc hai cách hiểu. Ghi dấu hiệu nhìn thấy hoặc quy tắc đã dùng, rồi nêu quyết định hoặc câu hỏi cho coach. Không cần ba lỗi; ca đã quyết định được cũng hợp lệ.
-
 | Ảnh/vị trí | Hai cách hiểu có thể | Quy tắc/chứng cứ | Quyết định hoặc câu hỏi cho coach |
 | --- | --- | --- | --- |
-| 1 | … | … | … |
-| 2 | … | … | … |
-| 3 | … | … | … |
+| Ảnh `000000181542.jpg`, motorcycle ở góc phải, khu vực bánh xe và thân xe | 1. Lấy cả phần nền/chi tiết nằm sát xe. 2. Chỉ lấy phần thuộc motorcycle. | Đường biên của motorcycle có thể phân biệt với nền và các vật thể xung quanh. | Tôi chọn **chỉ lấy phần motorcycle nhìn thấy**, không lấy nền. |
+| Ảnh đường phố có nhiều xe, các xe nằm gần hoặc che nhau | 1. Gộp các xe gần nhau thành một vùng. 2. Tách từng xe thành từng instance. | Các xe có đường viền và vị trí riêng dù có thể bị chồng lấn. | Tôi chọn **tách từng xe thành từng instance**, không gộp các xe khác nhau. |
+| Ảnh có người đi bộ và nhiều motorcycle, khu vực người bị xe che một phần | 1. Vẽ theo hình dạng hoàn chỉnh suy đoán của người. 2. Chỉ vẽ phần người thực sự nhìn thấy. | Một phần cơ thể bị motorcycle che khuất nên không quan sát được đường biên. | Tôi chọn **theo phần nhìn thấy**, không tự suy đoán phần bị che khuất; nếu quy tắc task yêu cầu xử lý khác thì hỏi coach. |
